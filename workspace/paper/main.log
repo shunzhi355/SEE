@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2026.5.24)  25 MAY 2026 00:39
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2026.5.24)  25 MAY 2026 00:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1587,84 +1587,75 @@ Package fontspec Info: Font family 'MicrosoftYaHei(0)' created for font
 (fontspec)             YaHei/BI/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-[1]
-
-LaTeX Font Warning: Font shape `TU/fvs/b/n' undefined
-(Font)              using `TU/fvs/m/n' instead on input line 76.
-
-(main.toc [2] [3])
-\tf@toc=\write6
-\openout6 = `main.toc'.
-
- [4] (sections/1_restatement.tex
+[1] (sections/1_restatement.tex
 File: ../figures/fig_roadmap.pdf Graphic file (type pdf)
 <use ../figures/fig_roadmap.pdf>
- [5
+ [2
 
 ]
 File: ../figures/fig_energy_topology.pdf Graphic file (type pdf)
 <use ../figures/fig_energy_topology.pdf>
- [6])
-(sections/2_assumptions.tex [7]) (sections/3_symbols.tex [8])
-(sections/4_problem1.tex
+ [3]) (sections/2_assumptions.tex [4])
+(sections/3_symbols.tex [5]) (sections/4_problem1.tex
 File: ../figures/fig_flow_q1.pdf Graphic file (type pdf)
 <use ../figures/fig_flow_q1.pdf>
- [9]
+ [6]
 File: ../figures/fig_q1_power_balance.pdf Graphic file (type pdf)
 <use ../figures/fig_q1_power_balance.pdf>
- [10]
+ [7]
 File: ../figures/fig_q1_power_detail.pdf Graphic file (type pdf)
 <use ../figures/fig_q1_power_detail.pdf>
- [11] [12]) (sections/5_problem2.tex
+ [8] [9])
+(sections/5_problem2.tex
 File: ../figures/fig_flow_q2.pdf Graphic file (type pdf)
 <use ../figures/fig_flow_q2.pdf>
- [13]
-[14]
+ [10] [11]
 File: ../figures/fig_q2_cost_compare.pdf Graphic file (type pdf)
 <use ../figures/fig_q2_cost_compare.pdf>
 File: ../figures/fig_q2_indicators.pdf Graphic file (type pdf)
 <use ../figures/fig_q2_indicators.pdf>
- [15]
+ [12]
 File: ../figures/fig_q2_gantt.pdf Graphic file (type pdf)
 <use ../figures/fig_q2_gantt.pdf>
 File: ../figures/fig_q2_scenario_heatmap.pdf Graphic file (type pdf)
 <use ../figures/fig_q2_scenario_heatmap.pdf>
- [16]
+ [13]
 File: ../figures/fig_q2_annual_cost.pdf Graphic file (type pdf)
 <use ../figures/fig_q2_annual_cost.pdf>
- [17]) (sections/6_problem3.tex
+ [14]) (sections/6_problem3.tex
 File: ../figures/fig_flow_q3.pdf Graphic file (type pdf)
 <use ../figures/fig_flow_q3.pdf>
- [18] [19]
+
+[15] [16]
 Overfull \hbox (150.5957pt too wide) detected at line 77
 [][][][]  [] [] [] \OT1/cmr/m/n/12.045 + ^^D
  []
 
 File: ../figures/fig_q3_dispatch.pdf Graphic file (type pdf)
 <use ../figures/fig_q3_dispatch.pdf>
-[20] [21]
+[17] [18]
 File: ../figures/fig_q3_compare.pdf Graphic file (type pdf)
 <use ../figures/fig_q3_compare.pdf>
 File: ../figures/fig_q3_annual_cost.pdf Graphic file (type pdf)
 <use ../figures/fig_q3_annual_cost.pdf>
- [22]) (sections/7_problem4.tex
+ [19]) (sections/7_problem4.tex
 File: ../figures/fig_flow_q4.pdf Graphic file (type pdf)
 <use ../figures/fig_flow_q4.pdf>
- [23] [24]
+ [20] [21]
 File: ../figures/fig_q4_offgrid_production.pdf Graphic file (type pdf)
 <use ../figures/fig_q4_offgrid_production.pdf>
- [25]
+ [22]
 File: ../figures/fig_q4_storage_dispatch.pdf Graphic file (type pdf)
 <use ../figures/fig_q4_storage_dispatch.pdf>
- [26]
+ [23]
 File: ../figures/fig_q4_economics.pdf Graphic file (type pdf)
 <use ../figures/fig_q4_economics.pdf>
- [27])
-(sections/8_problem5.tex [28]) (sections/9_sensitivity.tex [29]
+ [24])
+(sections/8_problem5.tex [25]) (sections/9_sensitivity.tex [26]
 File: ../figures/fig_sensitivity.pdf Graphic file (type pdf)
 <use ../figures/fig_sensitivity.pdf>
- [30] [31])
-(sections/10_evaluation.tex) [32] (sections/A_code.tex
+ [27] [28])
+(sections/10_evaluation.tex) [29] (sections/A_code.tex
 
 Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
 (fontspec)             doesn't exist).
@@ -1688,10 +1679,10 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
- [33] [34] [35])
+ [30] [31] [32])
 
 AED: lastpage setting LastPage
-[36] (main.aux)
+[33] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1704,12 +1695,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D1355B08675DB81A63E5BD51C69FFDCA;8192.
  ) 
 Here is how much of TeX's memory you used:
- 34762 strings out of 409617
- 731110 string characters out of 5774216
+ 34732 strings out of 409617
+ 729832 string characters out of 5774216
  1955191 words of memory out of 5000000
- 56154 multiletter control sequences out of 15000+600000
- 571154 words of font info for 141 fonts, out of 8000000 for 9000
+ 56132 multiletter control sequences out of 15000+600000
+ 571122 words of font info for 137 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,12n,117p,1281b,1202s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (37 pages).
+Output written on main.pdf (34 pages).
