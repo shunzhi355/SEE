@@ -1,0 +1,135 @@
+% !TeX program = xelatex
+% 电工杯数学建模竞赛模板 — 基于 neepumcm 文档类
+\documentclass[a4paper]{neepumcm}
+%  graphicx, booktabs, colortbl, xcolor 已由 neepumcm.cls 加载，不要重复加载
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
+\usepackage{algorithm2e}
+\usepackage{float}
+\usepackage[section]{placeins}
+\usepackage{needspace}
+\usepackage{longtable}
+
+% === 引用上标格式 ===
+\makeatletter
+\def\@cite#1#2{\textsuperscript{[{#1\if@tempswa , #2\fi}]}}
+\makeatother
+
+\mcmsetup{CTeX = true,
+        tcn = [12564],
+        problem = A,
+        timu = 绿电直连型电氢氨园区优化运行}
+\setmainfont{Times New Roman}
+\setmonofont[
+    Path=fonts/,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic
+]{UbuntuMono}
+
+\begin{document}
+
+% \begin{abstract}
+
+% 本文针对绿电直连型电氢氨园区的优化运行问题，建立了功率平衡、离散调度优化、连续调度优化和离网储能配置四层递进的数学模型体系，系统研究了园区在不同运行模式下的经济性和绿电合规性。
+
+% 针对问题一，基于功率平衡原则建立代数计算模型，得到典型日总用电量558.72 MWh、新能源发电量603.45 MWh、网购电量172.04 MWh、上网电量216.77 MWh。三项绿电指标中自发自用比$R_1=28.16\%$和上网比例$R_3=35.92\%$不满足要求，根本原因是光伏出力集中在白天导致的时空错配。
+
+% 针对问题二，建立0-1整数规划模型并证明贪心排序算法的全局最优性。典型场景下吨氨成本最低产量为36吨/日（3191.67元/吨），绿电指标全满足的最低成本为54吨/日（4591.27元/吨）。24种场景全年分析显示全满足场景0个、部分满足21个、全不满足3个，全年加权吨氨成本4493.82元/吨。
+
+% 针对问题三，建立72维线性规划模型，采用HiGHS求解器求解。连续调节使全年吨氨成本降至4274.18元/吨（较问题二降低4.9\%），全满足场景增至14个，全不满足场景降至0个，经济性和绿电合规性均显著改善。
+
+% 针对问题四，建立离网功率平衡和储能状态方程耦合的LP模型。无储能离网全年产氨9782吨，产能利用率37.7\%；配置5 MWh储能后全年产氨9831吨。联网模式全年产量12960吨，较离网高31.8\%，电网系统支撑的年成本价值约2516万元。
+
+% 针对问题五，从促进新能源消纳、降低输配电压力、提供灵活性资源三方面分析了有利影响，从削弱调峰资源、增加运行不确定性、交叉补贴三方面分析了不利影响，并提出了五项政策建议。
+
+% \begin{keywords}
+% 绿电直连 \quad 电氢氨园区 \quad 线性规划 \quad 功率调度优化 \quad 储能配置
+% \end{keywords}
+% \end{abstract}
+
+\begin{abstract}
+
+本文针对“双碳”背景下绿电直连型电氢氨园区的优化运行问题，建立了从功率平衡、离散/连续调度优化到离网储能配置的四层递进数学模型体系，系统研究了园区在多场景下的经济性、绿电合规性及环境生态效益。
+
+针对问题一，基于功率平衡原则建立代数计算模型。典型日下新能源发电量603.45 MWh，网购与上网电量分别为172.04 MWh和216.77 MWh。计算表明，自发自用比（$R_1=28.16\%$）和上网比例（$R_3=35.92\%$）均不达标，根本原因在于光伏出力集中导致的风光供需“时空错配”。
+
+针对问题二，建立0-1整数规划模型并严格证明了贪心排序算法的全局最优性。典型场景下，兼顾绿电指标全满足的最低成本产量为54吨/日（4591.27元/吨）。全年24种风光场景分析显示，离散调节下绿电指标全满足场景为0，全年加权吨氨成本为4493.82元/吨，暴露出刚性启停调度的局限性。
+
+针对问题三，创新性地引入CCER（国家核证自愿减排量）碳交易机制量化脱碳红利，建立以最小化“综合吨氨净成本”为目标的标准线性规划（LP）模型，并采用HiGHS求解器高效寻优。连续柔性调节与碳收益的双重驱动，使全年加权吨氨净成本降至4274.18元/吨（较问题二压降4.9\%），绿电全满足场景跃升至14个，实现了经济性与生态效益的深度协同。
+
+针对问题四，建立计及储能状态约束的离网LP模型。无储能离网全年产能利用率仅37.7\%；采用网格搜索法寻优得出最优储能配置为5 MWh，使极值弃电场景日产量提升16.3\%。对比表明，联网模式全年产量较配储离网高出31.8\%，测算出主网提供调峰备用支撑的年成本价值高达2516万元。
+
+针对问题五及模型检验，全面剖析了高渗透率绿电园区对主网输配电及灵活性的双刃剑效应。在灵敏度分析中，运用单因素扰动法量化了装机容量、分时电价等物理市场参数以及“碳交易价格”的环境政策影响。结果表明，光伏装机对成本呈高灵敏度，而碳价的抬升能显著放大本地绿电消纳的经济奖励，进一步压降吨氨净成本。最后，据此提出了完善动态指标与碳电跨市场协同的五项政策建议。
+
+\begin{keywords}
+绿电直连 \quad CCER碳交易 \quad 线性规划 \quad 柔性功率调度 \quad 储能配置优化
+\end{keywords}
+\end{abstract}
+
+\maketitle
+\newpage
+\tableofcontents
+\clearpage
+
+% === 正文 ===
+\input{sections/1_restatement}
+\input{sections/2_assumptions}
+\input{sections/3_symbols}
+\input{sections/4_problem1}
+\input{sections/5_problem2}
+\input{sections/6_problem3}
+\input{sections/7_problem4}
+\input{sections/8_problem5}
+\input{sections/9_sensitivity}
+\input{sections/10_evaluation}
+
+% === 参考文献 ===
+\begin{thebibliography}{99}
+
+% \bibitem{ref1} 国家发展改革委, 国家能源局. 关于有序推动绿电直连发展有关事项的通知[Z]. 2024.
+
+\bibitem{ref1} He, Xi and Tang, Junwen and Zhang, Changwei and Hong, Jun and Dai, Junjie and Ning, Haoru, Wind-solar-hydrogen storage coupled power market: economic analysis and capacity allocation optimization. Available at SSRN: https://ssrn.com/abstract=6435364 or http://dx.doi.org/10.2139/ssrn.6435364
+
+\bibitem{ref2} G. Maggio, G. Squadrito, A. Nicita,
+Hydrogen and medical oxygen by renewable energy based electrolysis: A green and economically viable route,
+Applied Energy,
+Volume 306, Part A,
+2022,
+117993,
+ISSN 0306-2619,
+https://doi.org/10.1016/j.apenergy.2021.117993.
+
+\bibitem{ref3} Ommen, Torben \& Markussen, Wiebke Brix \& Elmegaard, Brian, 2014. "Comparison of linear, mixed integer and non-linear programming methods in energy system dispatch modelling," Energy, Elsevier, vol. 74(C), pages 109-118.
+
+\bibitem{ref4} 杨博, 张子健. 基于人工智能的可再生能源电解水制氢 关键技术及发展前景分析[J]. Power Generation Technology, 2025, 46(3).
+
+\bibitem{ref5} 李建林, 姜冶蓉, 马速良, 等. 新型电力系统下分布式储能应用场景与优化配置[J]. 高电压技术, 2024, 50(1): 30-41.
+
+% \bibitem{ref7} 王成山, 武震, 李鹏. 微电网关键技术研究[J]. 电工技术学报, 2014, 29(2): 1-12.
+
+\bibitem{ref6} 肖先勇, 郑子萱. “双碳” 目标下新能源为主体的新型电力系统: 贡献, 关键技术与挑战[J]. 工程科学与技术, 2022, 54(1): 47-59.
+
+% \bibitem{ref9} 康重庆, 夏清, 刘梅. 电力系统负荷预测[M]. 北京: 中国电力出版社, 2017.
+
+\bibitem{ref7} Alexander Buttler, Hartmut Spliethoff,
+Current status of water electrolysis for energy storage, grid balancing and sector coupling via power-to-gas and power-to-liquids: A review,
+Renewable and Sustainable Energy Reviews,
+Volume 82, Part 3,
+2018,
+Pages 2440-2454,
+ISSN 1364-0321,
+https://doi.org/10.1016/j.rser.2017.09.003.
+
+\bibitem{ref8} 朱永强, 郝嘉诚, 赵娜, 等. 能源互联网中的储能需求, 储能的功能和作用方式[J]. 电工电能新技术, 2018, 37(2): 68-75.
+
+% \bibitem{ref12} Guo Y, Li G, Zhou J, et al. Optimal energy management for HKTramways[J]. IEEE Transactions on Smart Grid, 2022, 13(5): 4050-4061.
+
+\end{thebibliography}
+
+% === 附录 ===
+\begin{appendices}
+\input{sections/A_code}
+\end{appendices}
+
+\end{document}

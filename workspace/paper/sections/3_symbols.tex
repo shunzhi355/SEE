@@ -1,0 +1,42 @@
+\section{符号说明}
+
+\begin{longtable}{clc}
+\caption{主要符号说明}\label{tab:symbols} \\
+\toprule
+符号 & 含义 & 单位 \\
+\midrule
+\endfirsthead
+\toprule
+符号 & 含义 & 单位 \\
+\midrule
+\endhead
+$T$ & 时段总数（$T=24$） & --- \\
+$t$ & 时段索引 & --- \\
+$\Delta t$ & 时段长度 & h \\
+$P_{wind}(t)$ & $t$时段风电出力功率 & MW \\
+$P_{pv}(t)$ & $t$时段光伏出力功率 & MW \\
+$P_{load}(t)$ & $t$时段常规电负荷功率 & MW \\
+$P_{EHA}^{rated}$ & 电氢氨装置总额定功率 & MW \\
+$P_{buy}(t)$ & $t$时段购电功率 & MW \\
+$P_{sell}(t)$ & $t$时段售电功率 & MW \\
+$u(t)$ & $t$时段开停机状态（0或1） & --- \\
+$\alpha(t)$ & $t$时段功率调节系数 & --- \\
+$E_{total}$ & 日总用电量 & MWh \\
+$E_{RE}$ & 日新能源发电量 & MWh \\
+$E_{buy}$ & 日网购电量 & MWh \\
+$E_{sell}$ & 日上网电量 & MWh \\
+$R_1$ & 自发自用电量比例 & --- \\
+$R_2$ & 总用电量绿电比例 & --- \\
+$R_3$ & 新能源上网电量比例 & --- \\
+$C_{ton}$ & 吨氨成本 & 元/吨 \\
+$c_{buy}(t)$ & $t$时段购电电价 & 元/kWh \\
+$c_{sell}$ & 上网电价 & 元/kWh \\
+$C_{sto}$ & 储能额定容量 & MWh \\
+$\eta_c$, $\eta_d$ & 储能充/放电效率 & --- \\
+$M_{target}$ & 日目标产氨量 & 吨 \\
+$p_{carbon}$ & 碳排放权交易价格 & 元/吨 \\
+$e_{grid}$ & 区域电网基准线边际排放因子 & tCO$_2$/MWh \\
+$P_{RE,used}(t)$ & $t$时段园区实际消纳的绿电功率 & MW \\
+$R_{ccer}$ & 日均CCER碳减排交易收益 & 元 \\
+\bottomrule
+\end{longtable}

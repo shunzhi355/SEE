@@ -1,0 +1,34 @@
+{
+  "problem1": {
+    "E_total": 558.72,
+    "E_RE": 603.45,
+    "R1": 0.2816,
+    "R2": 0.6921,
+    "R3": 0.3592,
+    "C_ton": 4322.34
+  },
+  "problem2": {
+    "best_typical_production": 36,
+    "best_typical_cost": 3191.67,
+    "annual_cost": 4493.82,
+    "full_satisfy": 0,
+    "partial_satisfy": 21,
+    "none_satisfy": 3
+  },
+  "problem3": {
+    "annual_cost": 4274.18,
+    "full_satisfy": 14,
+    "partial_satisfy": 10,
+    "none_satisfy": 0
+  },
+  "problem4": {
+    "offgrid_annual_prod": 9781.8,
+    "offgrid_capacity_util": 0.3774,
+    "best_storage_MWh": 5,
+    "storage_annual_prod": 9831.0
+  },
+  "sensitivity": {
+    "base_cost": 4080.56,
+    "most_sensitive": "光伏装机容量"
+  }
+}
